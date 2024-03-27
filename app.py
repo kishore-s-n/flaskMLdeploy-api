@@ -50,7 +50,6 @@ def encodeIp(ipData):
 def predict():
     request_data = request.json  # Assuming the input data is sent as JSON
     ipData = request_data['data']  # Assuming the input data array is stored in 'data' key
-    ipData=['sunny','loam','basmathi','54','flood','wind']
     encoded_ip_data = encodeIp(ipData)  # Encode the input data
     prediction = model.predict(np.array(encoded_ip_data).reshape(1, -1))  # Make prediction
     return jsonify({'prediction': prediction.tolist()})
